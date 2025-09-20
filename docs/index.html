@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="output.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body class=" cursor-default relative font-space text-lg bg-white overflow-hidden w-small h-mobile md:w-desktop md:h-desktop">
+  <div id="main-wrapper" class="text-gray-800 md:flex flex-nowrap gap-6 align-middle justify-center ">
+    <!-- Card images -->
+    <header class=" p-5 h-header z-0 relative md:h-desktop md:w-header-desktop  md:-ml-64">
+      <img src="images/bg-main-mobile.png" alt="" class="absolute m-0 p-0 bg-cover top-0 left-0 w-small md:hidden">
+      <img src="images/bg-main-desktop.png" alt="" class="absolute m-0 p-0 bg-cover top-0 left-0 w-header-desktop  h-desktop hidden md:inline-block">
+      <!-- BACK OF CARD (shows CVC) -->
+      <div id="back-container" class=" md:absolute md:w-72 md:ml-60 md:mt-60 ">
+        <img src="/images/bg-card-back.png" alt="card-back" class="h-card w-72 absolute ml-24 mt-10 ">
+        <!-- Live reflection of CVC -->
+        <small id="cvc-display" class="absolute text-white ml-72 mt-24 text-sm">000</small>
+      </div>
+      <!-- FRONT OF CARD -->
+      <div class="md:absolute md:w-72 md:ml-80 md:-mt-7 ">
+        <img src="/images/bg-card-front.png" alt="card-front" class="w-72 absolute mt-28 rounded ">
+        <img src="/images/card-logo.svg" alt="card-logo" class="absolute w-16 h-9 ml-6 mt-32  ">
+        <!-- Live reflection of Card Number -->
+        <p id="card-number-display" class="text-white absolute text-lg font-semibold tracking-widest mt-48 ml-4">0000 0000 0000 0000</p>
+        <!-- Live reflection of Cardholder Name and Expiry -->
+        <small class="text-white absolute  mt-56 ml-4 w-64 flex justify-between gap-0">
+          <span id="card-name-display" class="inline-block ">Jane Appleseed</span>
+          <span class="inline-block" id="expiry-display">00/00</span>
+        </small>
+      </div>
+    </header>
+
+    <!-- FORM --> 
+    <form id="ticket-form" enctype="multipart/form-data" novalidate class="mt-20 ml-5 md:ml-36 md:mt-32 ">
+      <!-- Cardholder Name -->
+      <section class="mb-4">
+        <label for="Cardholder-name" class="block font-bold text-sm tracking-wider m-2">CARDHOLDER NAME</label>
+        <input type="text" id="Cardholder-name" name="Cardholder-name" placeholder="e.g. Jane Appleseed" maxlength="25" minlength="2" required class="border-solid border-gray-200 border rounded h-11 w-input p-3 focus:ring-0 ">
+        <small id="name-error" class="hidden text-red-500 md:block"></small>
+      </section>
+
+      <!-- Card Number -->
+      <section class="mb-4">
+        <label for="Card-number" class="block font-bold text-sm tracking-wider m-2">CARD NUMBER</label>
+        <!-- changed type to "text" so we can format spaces -->
+        <input type="text" id="Card-number" name="Card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="23" required class="border-solid border-gray-200 border rounded h-11 w-input p-3 focus:ring-0">
+        <small id="Card-number-error" class="hidden text-red-600 md:block"></small>
+      </section>
+
+      <!-- Expiry Date + CVC -->
+      <section id="expiry-date-cvv">
+        <div id="labelForDate-CVV" class="m-2">
+          <label for="month" class="font-bold text-sm tracking-wider m-2">EXP.DATE (MM/YY)</label>
+          <label for="cvc" class="font-bold text-sm tracking-wider ml-12">CVC</label>
+        </div>
+        <div id="inputForDate-CVV">
+          <!-- Expiry month -->
+          <input type="text" id="month" name="month" inputmode="numeric" maxlength="2" placeholder="MM" required class="focus:ring-0 border border-gray-200 w-20 h-6 p-5 rounded-md m-1">
+          <!-- Expiry year -->
+          <input type="text" id="year" name="year" inputmode="numeric" maxlength="2" placeholder="YY" required class=" focus:ring-0 border border-gray-200 w-20 h-6 p-5 rounded-md m-1">
+          <!-- CVC -->
+          <input type="text" id="cvc" name="cvc" maxlength="3" placeholder="e.g. 123" required class="border border-gray-200 w-48 h-6 p-5 rounded-md m-1 focus:ring-0">
+        </div>
+        <!-- Error messages -->
+        <div id="error" class="text-sm text-red-600 relative">
+          <small id="month-error" class=" hidden text-xs absolute"> Input a Month</small>
+          <small id="year-error" class=" hidden ml-24  text-xs absolute">Input a Year</small>
+          <small id="cvv-error" class=" hidden ml-48  text-xs absolute">Input CVV </small>  
+        </div>
+      </section>
+
+      <!-- Submit button -->
+      <button type="submit" id="submit-btn" class="bg-purple-950 text-white p-3 w-input rounded-lg mt-11">Confirm</button>
+    </form>
+    <!-- completed session hidden by default -->
+    <div id="thank-you-section" class=" hidden mt-20 md:ml-14 md:mt-28">
+      <img src="images/icon-complete.svg" alt="icon-complete" class="w-24 ml-40 ">
+      <h1 class="text-3xl font-medium ml-32 mt-8 text-purple-950">THANK YOU !</h1>
+      <p class="text-gray-400 font-medium ml-20 mt-5"> We've added your card details</p>
+      <button class="text-white bg-purple-950 p-3 w-input rounded-md mt-12 ml-5 " id="reset"> Continue</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT START -->
+  <script src="sandbox.js">
+   
+  </script>
+  <!-- SCRIPT END -->
+</body>
+</html>
