@@ -955,6 +955,14 @@ select{
   cursor: default;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .flex-nowrap{
   flex-wrap: nowrap;
 }
@@ -1040,6 +1048,10 @@ select{
   padding: 1.25rem;
 }
 
+.p-7{
+  padding: 1.75rem;
+}
+
 .align-middle{
   vertical-align: middle;
 }
@@ -1096,6 +1108,11 @@ select{
 .text-gray-800{
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+}
+
+.text-purple-900{
+  --tw-text-opacity: 1;
+  color: rgb(88 28 135 / var(--tw-text-opacity, 1));
 }
 
 .text-purple-950{
